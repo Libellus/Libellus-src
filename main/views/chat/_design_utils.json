@@ -1,0 +1,12 @@
+{
+   "_id": "_design/utils",
+   "language": "javascript",
+   "lists": {
+       "xml": "function element(name, row){if (!isNaN(parseInt(name[0], 10))) {name='_'+name} send('<' + name + '>\\n');   for(field in row) { if (typeof(row[field])=='object') {element(field, row[field])} else {send('<field name=\"' + field + '\">');  send((''+row[field]).replace(/&/g,'&amp;').replace(/</g,'&lt;'));  send('</field>\\n');}  }   send('</' + name + '>\\n');};        function(head, req) {    provides('xml', function() {    send('<xml>\\n');    while (row=getRow()) {   element('row', row)   }    send('</xml>');   });    }"
+   },
+   "views": {
+       "by_id": {
+           "map": "function(doc) {\n  emit(doc._id, null);\n}"
+       }
+   }
+}

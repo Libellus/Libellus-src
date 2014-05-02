@@ -1,0 +1,18 @@
+{
+   "_id": "_design/filter",
+   "language": "javascript",
+   "views": {
+       "comment": {
+           "map": "function(doc) { if (doc.type && doc.type == \"comment\")  emit(doc._id, doc) }"
+       },
+       "action": {
+           "map": "function(doc) { if (doc.type && doc.type == \"action\")  emit(doc._id, doc) }"
+       },
+       "journal": {
+           "map": "function(doc) { if (doc.type && doc.type == \"journal\")  emit(doc._id, doc) }"
+       },
+       "all": {
+           "map": "function(doc) { if (doc.type && (doc.type == \"journal\" || doc.type == \"comment\" || doc.type == \"action\")) emit(doc._id, doc) }"
+       }
+   }
+}

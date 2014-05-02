@@ -1,0 +1,7 @@
+{
+   "_id": "_design/app",
+   "filters": {
+       "type": "function(doc, req){if(doc.type == req.query.type) {return true;} return false;}",
+       "all": "function(doc){if(doc._deleted != true && (doc.type == \"comment\" || doc.type == \"action\" || doc.type == \"journal\")) {return true;} return false;}"
+   }
+}

@@ -1,0 +1,73 @@
+These needs to be added in the database
+
+Journal:
+
+{
+   "_id": "_design/filter",
+   "language": "javascript",
+   "views": {
+       "comment": {
+           "map": "function(doc) { if (doc.type && doc.type == 'comment')  emit(doc._id, doc) }"
+       },
+       "action": {
+           "map": "function(doc) { if (doc.type && doc.type == 'action')  emit(doc._id, doc) }"
+       },
+       "journal": {
+           "map": "function(doc) { if (doc.type && doc.type == 'journal')  emit(doc._id, doc) }"
+       },
+       "all": {
+           "map": "function(doc) { if (doc.type && (doc.type == 'journal' || doc.type == 'comment' || doc.type == 'action')) emit(doc._id, doc) }"
+       }
+   }
+}
+
+e.g http://localhost:5984/journal/_design/filter/_view/comments
+
+{
+   "_id": "_design/app",
+   "filters": {
+       "type": "function(doc, req){if(doc.type == req.query.type) {return true;} return false;}",
+       "all": "function(doc){if(doc._deleted != true && (doc.type == 'comment' || doc.type == 'action' || doc.type == 'journal')) {return true;} return false;}"
+   }
+}
+
+e.g http://localhost:5984/journal/_changes?filter=app/type&type=journal
+
+{
+   "_id": "_design/utils",
+   "language": "javascript",
+   "lists": {
+       "xml": "function element(name, row){if (!isNaN(parseInt(name[0], 10))) {name='_'+name} send('<' + name + '>\\n');   for(field in row) { if (typeof(row[field])=='object') {element(field, row[field])} else {send('<field name=\"' + field + '\">');  send((''+row[field]).replace(/&/g,'&amp;').replace(/</g,'&lt;'));  send('</field>\\n');}  }   send('</' + name + '>\\n');};        function(head, req) {    provides('xml', function() {    send('<xml>\\n');    while (row=getRow()) {   element('row', row)   }    send('</xml>');   });    }"
+   },
+   "views": {
+       "by_id": {
+           "map": "function(doc) {\n  emit(doc._id, null);\n}"
+       }
+   }
+}
+
+
+Chat:
+
+{
+   "_id": "_design/utils",
+   "language": "javascript",
+   "lists": {
+       "xml": "function element(name, row){if (!isNaN(parseInt(name[0], 10))) {name='_'+name} send('<' + name + '>\\n');   for(field in row) { if (typeof(row[field])=='object') {element(field, row[field])} else {send('<field name=\"' + field + '\">');  send((''+row[field]).replace(/&/g,'&amp;').replace(/</g,'&lt;'));  send('</field>\\n');}  }   send('</' + name + '>\\n');};        function(head, req) {    provides('xml', function() {    send('<xml>\\n');    while (row=getRow()) {   element('row', row)   }    send('</xml>');   });    }"
+   },
+   "views": {
+       "by_id": {
+           "map": "function(doc) {\n  emit(doc._id, null);\n}"
+       }
+   }
+}
+
+{
+   "_id": "_design/filter",
+   "language": "javascript",
+   "views": {
+       "all": {
+           "map": "function(doc) { if (doc.type && (doc.type == 'chat')) emit(doc._id, doc) }"
+       }
+   }
+}

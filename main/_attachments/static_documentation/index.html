@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Libellus 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="None" href="index.html#document-index" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Libellus 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="libellus-1-0-documentation">
+<h1>Libellus 1.0 Documentation<a class="headerlink" href="#libellus-1-0-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-Introduction"></span><div class="section" id="introduction">
+<h2>1.&nbsp;&nbsp;&nbsp;Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Libellus is an open source, cross-platform, ultra portable journal tool for crisis management. It runs in all modern web browsers, ready to use out of the box.</p>
+</div>
+<span id="document-User manual"></span><div class="section" id="user-manual">
+<h2>2.&nbsp;&nbsp;&nbsp;User manual<a class="headerlink" href="#user-manual" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="start-libellus">
+<h3>2.1.&nbsp;&nbsp;&nbsp;Start Libellus<a class="headerlink" href="#start-libellus" title="Permalink to this headline">¶</a></h3>
+<p>To start Libellus, find the file on the USB-drive with the name matching your operating system.
+If you are running Microsoft Windows 7 or 8, the name of the file will be windows.bat, and Mac-users must open the MacOSX-app.</p>
+<div class="figure align-center">
+<img alt="This window shows the folder structure on a windows-machine." src="_images/folder.png" />
+<p class="caption">This window shows the folder structure on a windows-machine.</p>
+</div>
+<p>This file is a startup-script that will perform some processes in the background to get Libellus up and running. All the actions will be run from a console window.</p>
+<div class="figure align-center">
+<img alt="_images/console.png" src="_images/console.png" />
+<p class="caption">This is the typical console-window. Here shown on a computer running Microsoft Windows.</p>
+</div>
+<p>Normally all user accounts can run this file, but if the script senses that it needs elevation, will you be prompted with a message telling you how to do this.</p>
+<p>Libellus will be needing access to the network for communication with other running instances of the software. To enable this, click allow access in the two dialog boxes asking for permissions.</p>
+<div class="figure align-center">
+<img alt="_images/fw_erl.png" src="_images/fw_erl.png" />
+</div>
+<div class="figure align-center">
+<img alt="_images/fw_python.png" src="_images/fw_python.png" />
+</div>
+<p>After some seconds, your default browser will open and be directed at the localhost address (<a class="reference external" href="https://127.0.0.1:6984/libellus/index.html">https://127.0.0.1:6984/libellus/index.html</a>)
+All communication in Libellus is transferred encrypted using the TLS technology. To enable this to run on a local computer, Libellus uses a self-signed certificate. This will make your browser display a warning message like the one below. Click on Proceed anyway to continue.</p>
+<div class="figure align-center">
+<img alt="_images/ssl.png" src="_images/ssl.png" />
+</div>
+</div>
+<div class="section" id="login">
+<h3>2.2.&nbsp;&nbsp;&nbsp;Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+<p>After the startup process, the following screen is the first you will meet.</p>
+<div class="figure align-center">
+<img alt="_images/startscreen.png" src="_images/startscreen.png" />
+</div>
+<p>The only thing you need to enter before you can use the program is a username. There is no users registered beforehand, which makes this the registration. The username can be whatever you want it to be, but we suggest to use something that identifies you, as well to be unique. Your first name will not be a good idea, because there are others with the same first name. We recommend your organizational email address, because it’s globally unique and will usually identify you by the screen name. If you need to change the username, this can be done by clicking on the Signed in as &lt;username&gt; on the menu.</p>
+</div>
+<div class="section" id="clock">
+<h3>2.3.&nbsp;&nbsp;&nbsp;Clock<a class="headerlink" href="#clock" title="Permalink to this headline">¶</a></h3>
+<p>In the upper right corner, you will see two datetimes. Local Time is the time taken from your computer, which is presented in the local timezone the computer is set to. Internet Time is a time taken from an external source on the Internet. This will always be presented in UTC plus 0 hours. If the Local Time and Internet Time is more or less in sync, the circle on the right side will be green. If both clocks are more than 3 seconds apart, the circle will be orange. If Libellus doesn’t have access to the Internet, the green circle will be red. You can also hold your mouse over the circle and it will show you the offset between both times.</p>
+<div class="figure align-center">
+<img alt="_images/clock.png" src="_images/clock.png" />
+</div>
+<p>If the clocks are not in sync, we recommend that you change your computer time manually, or that you update it automatically. You can’t do this from Libellus, but most operating systems support it. We suggest that that all clients on the network have the same local time.</p>
+<p>Every entry will be stored with local time, and if Libellus has Internet time, it will also store this. Even if you start to log without Internet time, but get this later, Libellus will calculate the offset and update every entry and add Internet time. As another method to ensure integrity, Libellus will log every time the client change the computer time.</p>
+</div>
+<div class="section" id="the-journal-view">
+<h3>2.4.&nbsp;&nbsp;&nbsp;The Journal View<a class="headerlink" href="#the-journal-view" title="Permalink to this headline">¶</a></h3>
+<p>The default screen is the journal view, which is probably where you will spend the most time.
+Right under the main menu, you can see some filtering options, which we will cover later, when we got some data to apply filters to.</p>
+<div class="figure align-center">
+<img alt="_images/journal8.png" src="_images/journal8.png" />
+</div>
+<p>Under the filtering options, you see some headers for the table. Here is the explanations for all the columns</p>
+<ul class="simple">
+<li><strong>Nr.</strong> - This is a running number to have something to refer to.</li>
+<li><strong>Author</strong> - This is the user that made the journal entry</li>
+<li><strong>Subject</strong> - The subject of the entry.</li>
+<li><strong>Time</strong> - This is the happening time, when the event took place</li>
+<li><strong>Class</strong> - This is the classification of the entry. Hold your pointer over the text to show the full content.</li>
+<li><strong>#Com</strong> - This is number of comments to the journal entry</li>
+<li><strong>#Act</strong> - This is the number of actions to the journal entry</li>
+<li><strong>Added (Internet)</strong> - This is the time taken from an external source on the Internet, when the entry was stored into the Libellus client. This may be displaying N/A if the client didn’t have access to the Internet when the entry was stored.</li>
+<li><strong>Added (Local)</strong> - This is the time taken from the clients computer when the entry was stored in the the database</li>
+</ul>
+<p>The last thing you may have noticed is the footer at the bottom with the caption Write New Journal Entry, which will be covered next.</p>
+</div>
+<div class="section" id="write-new-journal-entry">
+<h3>2.5.&nbsp;&nbsp;&nbsp;Write New Journal Entry<a class="headerlink" href="#write-new-journal-entry" title="Permalink to this headline">¶</a></h3>
+<p>When you have clicked on the Write New Journal Entry bar, a form will appear. The subject should explain in short what the entry is about and content should contain the full story of the event. Keywords is a free text input field, where you can write words to associate the entry with. This is a feature to make it easier to search for entries later. Happening time should be in the past, when the event you are writing about took place. This should not be confused with Added (Internet) or Added (Local), which is when the journal entry was added. The drop down menu with predefined classification values should describe who can know about the information you are writing about. Libellus does not handle classification different, but the organization that use Libellus might.</p>
+<div class="figure align-center">
+<img alt="_images/journal1.png" src="_images/journal1.png" />
+</div>
+<p>When you have filled in the values and clicked on Add Entry, you can close the form by clicking on it again. You can now see that the entry is displayed in the journal, and you can expand it by simply clicking on it. Now your screen should look something like the following.</p>
+<div class="figure align-center">
+<img alt="_images/journal2.png" src="_images/journal2.png" />
+</div>
+<p>Notice that you can find the content and keywords under the row with metadata.</p>
+</div>
+<div class="section" id="appendices">
+<h3>2.6.&nbsp;&nbsp;&nbsp;Appendices<a class="headerlink" href="#appendices" title="Permalink to this headline">¶</a></h3>
+<p>As you can see in the previous image, there is a form inside the journal table. This is where you can add appendices, i.e. comments and actions. The first drop down menu you see is where
+you choose whether to create a comment or action. The difference of these alternatives, is that a comment is to add information to the journal entry and actions is anything that needs to be done in relations to the journal entry.</p>
+<div class="section" id="comments">
+<h4>2.6.1.&nbsp;&nbsp;&nbsp;Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h4>
+<p>When creating a comment, you have two choices of the type of attachment. The first is to upload a digital file. Just hit the browse button and a file manager will appear, where you can find your file, but be careful to not upload large files. This is because the file may be replicated amongst many clients and take up much bandwidth. The default max file size is set to 10 megabytes. The second alternative is filed copy.</p>
+<div class="figure align-center">
+<img alt="_images/filed_copy.png" src="_images/filed_copy.png" />
+</div>
+<p>Let’s say you have a physical paper, hard drive, CD or basically something that you can’t upload, or is too big to be uploaded, but you want the journal to keep a record of. Filed copy makes you do this, by a random generated reference string. Check the filed copy checkbox and write the string on the physical object, or maybe use a post-it note on it, before you hit the Add appendix-button.</p>
+</div>
+<div class="section" id="actions">
+<h4>2.6.2.&nbsp;&nbsp;&nbsp;Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h4>
+<p>To add an action instead of a comment, just change the value on the drop down box. Now you will see some other input fields. Here you can write a deadline to when the action needs to be complete. When clicking in the field, it will get a default value, which is the current date and time, but should be set to a time in the future. The second new input field is who is responsible for the task. This could be his screen name on Libellus or his real name, but it’s up to the organization to choose what to use.</p>
+<div class="figure align-center">
+<img alt="_images/journal3.png" src="_images/journal3.png" />
+</div>
+<p>When the action is added, you will see that the entry like in the image below. The row is highlighted in blue, because the deadline is over an hour due in the future. The color will change to orange when the deadline is less than an hour and turn red when the time limit is in the past. The row will be green when the action is solved, and get a strike through when rejected, which we will get to later.</p>
+<div class="figure align-center">
+<img alt="_images/actions.png" src="_images/actions.png" />
+</div>
+<p>There is another feature that comments doesn’t have, which is a goto link on the right, depicted with a pointing finger. When clicking on it, you will be directed to the Actions page and the target action entry will be expanded.</p>
+</div>
+</div>
+<div class="section" id="sorting">
+<h3>2.7.&nbsp;&nbsp;&nbsp;Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<p>You can sort every table by clicking on the headers. Click once for descending and twice for ascending sorting. You can also sort by multiple values by holding down the shift key while clicking.</p>
+</div>
+<div class="section" id="the-actions-view">
+<h3>2.8.&nbsp;&nbsp;&nbsp;The Actions View<a class="headerlink" href="#the-actions-view" title="Permalink to this headline">¶</a></h3>
+<p>You can get to the action page by either clicking on Actions in the main menu, or click goto on the inline action entry, like you just did. The first thing you can notice, is the button on the right, which has changed color to orange in the time between. This button will like the row on the journal page, change color according to the time left for the deadline. The caption on the button now displays “Unsolved”, naturally because no one has solved it yet. The metadata is just like before, but with one exception, that is Marked solved by, which is the user updated the status of the entry.</p>
+<div class="figure align-center">
+<img alt="_images/actions6.png" src="_images/actions6.png" />
+</div>
+<p>We can also see the complete journal entry that the action are referring to. This is because you can read it and instantly know which journal entry the action are referring to. You also got a goto button here on the right side, which will take you back to the target entry in the journal view.</p>
+<p>If an action is solved, just write a comment and select Solved in the drop down menu. Now this is what you will see. The status button now displays Solved with a green background. The comment and who marked it also are shown.</p>
+<div class="figure align-center">
+<img alt="_images/actions5.png" src="_images/actions5.png" />
+</div>
+<p>The other alternative to an action is to reject it. This can be useful if the action is not possible to complete or that the deadline is too strict. The image below illustrates how this looks like.</p>
+<div class="figure align-center">
+<img alt="_images/actions7.png" src="_images/actions7.png" />
+</div>
+<p>Note that once an action is marked, it can not be edited later.</p>
+</div>
+<div class="section" id="the-visualize-view">
+<h3>2.9.&nbsp;&nbsp;&nbsp;The Visualize View<a class="headerlink" href="#the-visualize-view" title="Permalink to this headline">¶</a></h3>
+<p>The visualize view shows the journal information on a different perspective. In the example below, you can see a journal entry and an action. Actions will follow the same coloring as they do on the other views, and stretch in length according to the time frame given by the deadline. Use the buttons to navigate in the timeline, or hold and move your mouse in the direction you want to expand the timeline to left or right. You can also zoom in and out with the scroll wheel on your mouse. As you can see, there is a red vertical line in the timeline. This is to mark the current time, which you can always move instantly to by clicking on the button with the caption Move to current time.</p>
+<div class="figure align-center">
+<img alt="_images/visualize.png" src="_images/visualize.png" />
+</div>
+<p>The visualization view is very much under development, and will most likely get an upgrade in the future.</p>
+</div>
+<div class="section" id="the-chat-view">
+<h3>2.10.&nbsp;&nbsp;&nbsp;The Chat View<a class="headerlink" href="#the-chat-view" title="Permalink to this headline">¶</a></h3>
+<p>The chat is very simple in design and features, by which the only feature is to write to all. On the right side you have a list that displays all online users, with a number in parentheses to indicate how much latency they got. i.e. how much time since they were online. If a user have zero in latency, that doesn’t need to mean they are online in the chat room, because the latency will update with a frequent interval as long as they have Libellus running.</p>
+<div class="figure align-center">
+<img alt="_images/chat.png" src="_images/chat.png" />
+</div>
+<p>The chat is meant to be used for anything that is not important enough to become an independant journal entry, but can really be used to anything. For instance a bulletin board to keep track of who is available or not. Keep in mind that everything you write in the chat will be logged and synchronized with other Libellus instances on the network. The last thing to know is that when you click on the input field, or hit the submit button, you will automaticly be scrolled down to the bottom of the chat.</p>
+</div>
+<div class="section" id="the-utils-view">
+<h3>2.11.&nbsp;&nbsp;&nbsp;The Utils View<a class="headerlink" href="#the-utils-view" title="Permalink to this headline">¶</a></h3>
+<p>This is a view where you can do multiple tasks, like exporting data and view replication status.</p>
+<div class="figure align-center">
+<img alt="_images/utils.png" src="_images/utils.png" />
+</div>
+<div class="section" id="export">
+<h4>2.11.1.&nbsp;&nbsp;&nbsp;Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h4>
+<p>The first section you see is for exporting. Here you can extract the journal and the chat database. You can download the complete and raw database file, which you can save and add back into Libellus later. View the maintenance guide for an explanation for how to do this. If you export as XML or JSON, you don’t get attachments and it’s not possible to import these formats into the database again after exporting. This can be used with import to other software.</p>
+</div>
+<div class="section" id="visit-externally">
+<h4>2.11.2.&nbsp;&nbsp;&nbsp;Visit externally<a class="headerlink" href="#visit-externally" title="Permalink to this headline">¶</a></h4>
+<p>The section in the middle of the screen where you can see your own IP address, you can find the url for your running instance of Libellus. You can use this to visit your instance externally on other devices, like smartphones or tablets.</p>
+</div>
+<div class="section" id="add-replication">
+<h4>2.11.3.&nbsp;&nbsp;&nbsp;Add replication<a class="headerlink" href="#add-replication" title="Permalink to this headline">¶</a></h4>
+<p>At startup Libellus will detect other running instances of the software and add them to the replication automatically. But in some cases it may be useful to manually set up replication to other instance. This can for example be an instance on the Internet which may connect multiple local networks.</p>
+</div>
+<div class="section" id="view-status-and-remove-replications">
+<h4>2.11.4.&nbsp;&nbsp;&nbsp;View status and remove replications<a class="headerlink" href="#view-status-and-remove-replications" title="Permalink to this headline">¶</a></h4>
+<p>On the bottom, you can see the status for all the replications. If the status shows a green box with the caption Triggered, like in the image above, everything is as it should. If you see a red box with the word Error, then something is wrong. This will mostly be the cause of other clients going offline.</p>
+<p>Finally you can remove all replications by clicking on the button at the bottom right corner.</p>
+</div>
+</div>
+<div class="section" id="filters">
+<h3>2.12.&nbsp;&nbsp;&nbsp;Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<p>The journal view has filters that can be applied to remove everything you don’t want to see.</p>
+<p>There is two possible ways to filter out data, by keyword and datetime. Filtering on both does work, but the last option chosen will be prioritized. The solution is to click on the input field to which you want top priority.</p>
+<div class="section" id="filter-by-keywords">
+<h4>2.12.1.&nbsp;&nbsp;&nbsp;Filter by keywords<a class="headerlink" href="#filter-by-keywords" title="Permalink to this headline">¶</a></h4>
+<p>To search for a word, you can enter it in the input field on the right. All search words will be matched against everything in the journal entry or an appendix related to an entry. You can for example search for a keyword, person, filename or a filed copy. The search is case insensitive and will with each keystroke adjust the filters to create a real time feeling. The button with the trash can, will as implied empty the input field for text.</p>
+<p>Here you can see the journal table without any filters. We got two journal entries, which looks almost the same, but with one difference.</p>
+<div class="figure align-center">
+<img alt="_images/filter2.png" src="_images/filter2.png" />
+</div>
+<p>Here is the same table, but here we only show entries that has the word another.</p>
+<div class="figure align-center">
+<img alt="_images/filter1.png" src="_images/filter1.png" />
+</div>
+</div>
+<div class="section" id="filter-by-datetime">
+<h4>2.12.2.&nbsp;&nbsp;&nbsp;Filter by datetime<a class="headerlink" href="#filter-by-datetime" title="Permalink to this headline">¶</a></h4>
+<p>When filtering on time, you have three alternatives. You can use the From input field to set a start time, where you will only see entries that has local added time since the date time you choose. This can for instance be used to get all updates after a status meeting.</p>
+<div class="figure align-center">
+<img alt="_images/filter3.png" src="_images/filter3.png" />
+</div>
+<p>You can also use the To option to only show entries up to the given date time.
+The last alternative is to use both, to only get entries that is within the time frame from both To and From.</p>
+<div class="figure align-center">
+<img alt="_images/filter4.png" src="_images/filter4.png" />
+</div>
+</div>
+</div>
+</div>
+<span id="document-FAQ"></span><div class="section" id="faq">
+<h2>3.&nbsp;&nbsp;&nbsp;FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<p><strong>The time sync / offset button is red</strong></p>
+<p>This either means that you don&#8217;t have Internet connection or that your computer time wrong. If the Internet time displays N/A, then most likely you don&#8217;t Internet access, or that the external source is down. If your computer time is wrong, then you must change it according to your operating system.</p>
+<p>Please verify your Internet connectivity by visiting a external webpage, eg www.libellus.no
+Then check that nothing is blocking your access to the Internet time server, by opening the following link manually:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">timeapi.herokuapp.com/utc/now.json?callback=jQuery18309364777216687799_1396946053197&amp;_=1396946053268</p>
+</div>
+<p>If you need to accept a non trusted web page, or are presented with a SSL error, check the sites certificate.</p>
+<p><strong>My local time is in the wrong time zone. How can I change it?</strong></p>
+<p>Open the time and date settings on your operating systems and change it there.</p>
+<p><strong>How can I sort on several items at the same time?</strong></p>
+<p>Hold down the shift key as you click on the table headers.</p>
+</div>
+<span id="document-Changelog"></span><div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<p><strong>1.0</strong></p>
+<ul class="simple">
+<li>Initial release.</li>
+</ul>
+</div>
+<span id="document-Contributors"></span><div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p><ul class="simple">
+<li><a href="https://github.com/dsolstad" target="_blank">dsolstad</a></li>
+<li><a href="https://github.com/ojeey" target="_blank">ojeey </a></li>
+</ul></p>
+</div>
+<span id="document-Attribution"></span><div class="section" id="attribution">
+<h2>Attribution<a class="headerlink" href="#attribution" title="Permalink to this headline">¶</a></h2>
+<p>The development of this software was made possible using the following components:</p>
+<ul class="simple">
+<li>CouchDB</li>
+<li>Bootstrap</li>
+<li>jQuery</li>
+<li>python</li>
+<li>sphinx-doc</li>
+<li>bootstrapx-clickover.js</li>
+<li>bootstrap-dialog.js</li>
+<li>jquery.tablesorter</li>
+<li>jquery.form</li>
+<li>timeline.js</li>
+<li>moment.js</li>
+</ul>
+</div>
+<span id="document-License"></span><div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at: apache.org/licenses/LICENSE-2.0</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Introduction">1.&nbsp;&nbsp;&nbsp;Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-User manual">2.&nbsp;&nbsp;&nbsp;User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#start-libellus">2.1.&nbsp;&nbsp;&nbsp;Start Libellus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#login">2.2.&nbsp;&nbsp;&nbsp;Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#clock">2.3.&nbsp;&nbsp;&nbsp;Clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-journal-view">2.4.&nbsp;&nbsp;&nbsp;The Journal View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#write-new-journal-entry">2.5.&nbsp;&nbsp;&nbsp;Write New Journal Entry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#appendices">2.6.&nbsp;&nbsp;&nbsp;Appendices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sorting">2.7.&nbsp;&nbsp;&nbsp;Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-actions-view">2.8.&nbsp;&nbsp;&nbsp;The Actions View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-visualize-view">2.9.&nbsp;&nbsp;&nbsp;The Visualize View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-chat-view">2.10.&nbsp;&nbsp;&nbsp;The Chat View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#the-utils-view">2.11.&nbsp;&nbsp;&nbsp;The Utils View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#filters">2.12.&nbsp;&nbsp;&nbsp;Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-FAQ">3.&nbsp;&nbsp;&nbsp;FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Contributors">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-Attribution">Attribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-License">License</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Libellus 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

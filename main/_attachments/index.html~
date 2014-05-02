@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Libellus - Crisis Management Tool</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <link href="style/bootstrap.css" rel="stylesheet" />
+  <link href="style/timeline.css" rel="stylesheet" /> 
+  <link href="style/libellus_core.css" rel="stylesheet" />
+ 
+  
+</head>
+
+<body data-offset="1" data-target=".navbar-collapse">
+  
+  <!-- Start wrap -->
+  <div id="wrap">
+    <!-- Start navigation -->
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo_70x70.png" height="20"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a id="_journal" href=""><span class="glyphicon glyphicon-list"></span> Journal</a></li>
+            <li><a id="_actions" href=""><span class="glyphicon glyphicon-ok"></span> Actions</a></li>
+            <li><a id="_visualize" href=""><span class="glyphicon glyphicon-eye-open"></span> Visualize</a></li>
+            <li><a id="_chat" href=""><span class="glyphicon glyphicon-comment"></span> Chat</a></li>
+            <li><a id="_help" href=""><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+            <li><a id="_utils" href=""><span class="glyphicon glyphicon-wrench"></span> Utils</a></li>
+            <li><a id="signed_in_as" href=""><span class="glyphicon glyphicon-user"></span> Signed in as <span id="show_username" /></a></li>
+          </ul>
+          <div id="clock_status"></div>
+          <div id="clock_cont">
+            <div class="clock" id="clock_local"></div>
+            <div class="clock" id="clock_external"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End navigation -->
+    
+    <!-- Start content -->
+    <section class="content">
+      <div id="main_content" class="container"></div>
+    </section>
+    <!-- End content -->
+
+  
+  </div>
+  <!-- End Wrap -->
+  
+  <!-- Start include Javascript -->
+  
+  <!--<script src="script/jquery.js"></script>-->
+  <script src="script/jquery-2.1.0.min.js"></script>
+  <script src="script/jquery.browser.js"></script>
+  <script src="script/jquery.couch.js"></script>
+  <script src="script/moment.min.js"></script>
+  <script src="script/jquery.form.min.js"></script>
+  <script src="script/jquery.tablesorter.js"></script>
+  <script src="script/timeline.js"></script>
+  <script src="script/bootstrap-dialog.js"></script>
+  <script src="script/bootstrap-datetimepicker.min.js"></script>
+  <script src="script/bootstrap-datetimepicker.en-gb.js"></script>
+  
+  <script src="script/libellus_config.js"></script>
+  <script src="script/libellus_core.js"></script>
+  <script src="script/libellus_mod_journal.js"></script>
+  <script src="script/libellus_mod_actions.js"></script>
+  <script src="script/libellus_mod_visualize.js"></script>
+  <script src="script/libellus_mod_help.js"></script>
+  <script src="script/libellus_mod_utils.js"></script>
+  <script src="script/libellus_mod_login.js"></script>
+  <script src="script/libellus_mod_chat.js"></script>
+  <script src="script/bootstrap.js"></script>
+  <script src="script/bootstrapx-clickover.js"></script>
+  <!-- End include Javascript -->
+  
+  </body>
+</html>
