@@ -18,17 +18,17 @@ Install CouchApp:
 `$ sudo pip install --upgrade couchapp`
 
 Start CouchDB:
-`$ sudo service couchdb start`
+```$ sudo service couchdb start```
 
 Clone the Libellus Git repository:
-`$ git clone git@github.com:Libellus/Libellus-src.git`
+```$ git clone git@github.com:Libellus/Libellus-src.git```
 
 Change directory into the Libellus-src folder
-`$ cd Libellus-src`
+```$ cd Libellus-src```
 
 Run the setup_database.sh file to add databases and views:
-`$ chmod +x ./setup_database.sh`
-`$ ./setup_database.sh`
+```$ chmod +x ./setup_database.sh```
+```$ ./setup_database.sh```
 
 Push Libellus to CouchDB. Remember to enter the password chosen from the setup-database.sh script into the URL:
 `$ couchapp push main http://libellusadmin:<password>@localhost:5984/libellus`
