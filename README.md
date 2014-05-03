@@ -7,15 +7,19 @@ Check out the portable release.
 ## Installation on Ubuntu Linux
 
 Install CouchDB, Git and Curl:
-`$ sudo apt-get install couchdb curl git`
+```bash
+$ sudo apt-get install couchdb curl git
+```
 
 Install CouchApp:
-`$ sudo apt-get install python-dev`
-`$ curl -O http://python-distribute.org/distribute_setup.py`
-`$ sudo python distribute_setup.py`
-`$ sudo easy_install pip`
-`$ sudo pip install -U couchapp`
-`$ sudo pip install --upgrade couchapp`
+```bash
+$ sudo apt-get install python-dev
+$ curl -O http://python-distribute.org/distribute_setup.py
+$ sudo python distribute_setup.py
+$ sudo easy_install pip
+$ sudo pip install -U couchapp
+$ sudo pip install --upgrade couchapp
+```
 
 Start CouchDB:
 ```bash
