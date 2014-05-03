@@ -37,7 +37,8 @@ $ cd Libellus-src
 ```
 
 Run the setup_database.sh file to add databases and views:
-```bash$ chmod +x ./setup_database.sh
+```bash
+$ chmod +x ./setup_database.sh
 $ ./setup_database.sh
 ```
 
