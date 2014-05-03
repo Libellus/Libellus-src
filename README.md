@@ -6,6 +6,8 @@ Check out the portable release.
 
 ## Installation on Ubuntu Linux
 
+This guide will probably also work on all Debian based distributions.
+
 Install CouchDB, Git and Curl:
 ```bash
 $ sudo apt-get install couchdb curl git
