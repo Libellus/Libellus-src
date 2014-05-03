@@ -716,7 +716,7 @@ $(document).ready(function() {
             refers_to: self.children('#add_appendix_refers_to').val(),
             content: self.find('#add_appendix_cont').val(),
             author: getCookie('username'),
-            type: self.children('#add_appendix_type').val(),
+            type: self.find('#add_appendix_type').val(),
             added_timestamp_external: glob_external_timestamp,
             added_timestamp_local: glob_local_timestamp,
             uuid: glob_uuid,
@@ -724,7 +724,7 @@ $(document).ready(function() {
         }
 
         // If the appendix is an action, we add some more data
-        if (self.children('#add_appendix_type').val() == 'action') {
+        if (self.find('#add_appendix_type').val() == 'action') {
             obj_info['deadline'] = datetimeToTimestamp(self.find('#add_appendix_deadline').val());
             obj_info['solved'] = 0;
             obj_info['solved_by_username'] = null;
