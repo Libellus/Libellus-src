@@ -47,16 +47,18 @@ Change directory into the Libellus-src folder
 $ cd Libellus-src
 ```
 
+Push Libellus to CouchDB. Remember to enter the password chosen from the setup-database.sh script into the URL:
+```bash
+$ couchapp push main http://localhost:5984/libellus
+```
+
 Run the setup_database.sh file to add databases and views:
 ```bash
 $ chmod +x ./setup_database.sh
 $ ./setup_database.sh
 ```
 
-Push Libellus to CouchDB. Remember to enter the password chosen from the setup-database.sh script into the URL:
-```bash
-$ couchapp push main http://libellusadmin:<password>@localhost:5984/libellus
-```
+
 
 Now view Libellus by pointing your web browser to http://localhost:5984/libellus/_design/main/index.html.
 
