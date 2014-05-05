@@ -7,7 +7,7 @@
 \_____/_|_.__/ \___|_|_|\__,_|___/ v. 1.0
 ```
 
-Libellus is an open source, cross-platform, ultra portable journal tool for crisis management. It runs in all modern web browsers, ready to use out of the box.
+Libellus is an open source ultra portable journal tool for crisis management. It runs in all modern web browsers, ready to use out of the box.
 
 ## Installation on Microsoft Windows
 
