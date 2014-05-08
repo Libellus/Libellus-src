@@ -53,7 +53,7 @@ function insertJournalSection() {
               html += '<textarea id="add_journal_cont" style="resize: vertical;" cols="80" rows="4" placeholder="Content" class="form-control"></textarea>';
               html += '<input id="add_journal_keywords" type="text" placeholder="Keywords" class="form-control" />';
               html += '<div class="input-group col-sm-8" style="padding-left:0px;">';
-                html += '<input id="add_journal_happening_time" placeholder="Happening time" type="text" class="form-control" />';
+                html += '<input id="add_journal_event_time" placeholder="Event time" type="text" class="form-control" />';
                 html += '<div class="input-group-btn dropup">';
                   html += '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
                     html += '<span id="add_journal_class_label" style="color:#333333;">Classification</span> <span class="caret"></span>';
@@ -85,7 +85,7 @@ function insertJournalEntry(doc) {
     html +=   '<td>' + ++glob_journal_counter + '</td>';
     html +=   '<td>' + escapeHtml(doc.author) + '</td>';
     html +=   '<td>' + wordwrap(escapeHtml(doc.subject), 60, '<br />', 1) + '</td>';
-    html +=   '<td>' +  moment(doc.happening_time).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+    html +=   '<td>' +  moment(doc.event_time).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
     html +=   '<td title="' + doc.classification + '">' + classReplacement(doc.classification) + '</td>';
     html +=   '<td>&nbsp;</td>'; // Here comes the number of comments
     html +=   '<td>&nbsp;</td>'; // Here comes the number of actions
@@ -320,7 +320,7 @@ function insertJournalTable() {
     html +=       '<th>Nr.</th>';
     html +=       '<th><span>Author</span></th>';
     html +=       '<th><span>Subject</span></th>';
-    html +=       '<th><span>Time</span></th>';
+    html +=       '<th><span>Event Time</span></th>';
     html +=       '<th><span>Class</span></th>';
     html +=       '<th><span>#Com</span></th>';
     html +=       '<th><span>#Act</span></th>';
@@ -623,7 +623,7 @@ $(document).ready(function() {
         $('#footer').css('height', 'auto');
     });
     
-    $(document).on('focus', '#add_journal_happening_time', function() {
+    $(document).on('focus', '#add_journal_event_time', function() {
         $(this).val(moment(glob_local_timestamp).format('YYYY/MM/DD HH:mm:ss ZZ'));
         $(this).datetimepicker({format: 'YYYY/MM/DD HH:mm:ss ZZ', language: 'gb'});
     });
@@ -652,7 +652,7 @@ $(document).ready(function() {
             author: getCookie('username'),
             classification: $('#add_journal_class').val(),
             type: 'journal',
-            happening_time: datetimeToTimestamp($('#add_journal_happening_time').val()),
+            event_time: datetimeToTimestamp($('#add_journal_event_time').val()),
             added_timestamp_external: glob_external_timestamp,
             added_timestamp_local: glob_local_timestamp,
             keywords: $('#add_journal_keywords').val(),
@@ -660,8 +660,8 @@ $(document).ready(function() {
             order: getCookie('order_counter'),
         }
         
-        // Check if the happening time is a valid time
-        if (!validDate(obj_info.happening_time)) {
+        // Check if the event time is a valid time
+        if (!validDate(obj_info.event_time)) {
             return;
         }   
         
@@ -669,7 +669,7 @@ $(document).ready(function() {
         addDoc('journal', obj_info, function(doc) {
             $('#add_journal_subject').val('');
             $('#add_journal_cont').val('');
-            $('#add_journal_happening_time').val('');
+            $('#add_journal_event_time').val('');
             $('#add_journal_keywords').val('');
         });
     });
@@ -874,7 +874,7 @@ $(document).ready(function() {
         
         // Iterate through all journal entries
         $.each($rows, function() {
-            // Gets happening time
+            // Gets event time
             var time_target = datetimeToTimestamp($(this).children('td').eq(3).text());
             // If the target time is earlier then the from time and past the to time, we hide it.
             if (time_target <= time_from || time_target >= time_to) {
