@@ -141,7 +141,6 @@ input[type=checkbox] {
 
 }
 
-
 .btn-secondary { 
     color: #ffffff; 
     background-color: #222222; 
@@ -432,6 +431,11 @@ table[name=table_appendix] > tbody > tr > td.lalign {
     }
 }
 
+/* Clocks */
+@media (max-width: 1180px) {
+
+}
+
 /* IE 6 */
 * html #footer {
      position:absolute;
@@ -527,8 +531,16 @@ ul.dropdown-menu > li > a:hover {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
     
+    #clocks {
+        background-color: green;
+    }
+    
+}
+
+#clocks, #clock_cont, .clock {
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 /* CSS for the timeline */

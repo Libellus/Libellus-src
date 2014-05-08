@@ -53,12 +53,12 @@ function insertJournalSection() {
               html += '<textarea id="add_journal_cont" style="resize: vertical;" cols="80" rows="4" placeholder="Content" class="form-control"></textarea>';
               html += '<input id="add_journal_keywords" type="text" placeholder="Keywords" class="form-control" />';
               html += '<div class="input-group col-sm-8" style="padding-left:0px;">';
-                html += '<input id="add_journal_event_time" placeholder="Event time" type="text" class="form-control" />';
+                html += '<input id="add_journal_event_time" placeholder="Event Time" type="text" class="form-control" />';
                 html += '<div class="input-group-btn dropup">';
                   html += '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
                     html += '<span id="add_journal_class_label" style="color:#333333;">Classification</span> <span class="caret"></span>';
                   html += '</button>';
-                  html += '<ul id="add_journal_class_select" class="dropdown-menu">';
+                  html += '<ul id="add_journal_class_select" class="dropdown-menu" style="left:57%;">';
                   $.each(cfg_classifications, function(index, value) {
                       html += '<li><a href="#">' + value + '</a></li>';
                   });
@@ -78,6 +78,7 @@ function insertJournalSection() {
     $('#main_content').append(html);
 }
 
+// Inserts a journal entry with structure for appendices and appendix form
 // Inserts a journal entry with structure for appendices and appendix form
 function insertJournalEntry(doc) {
     var html = '';
@@ -139,13 +140,11 @@ function insertJournalEntry(doc) {
     html +=     '<td>';
     html +=       '<form class="add_appendix" id="' + doc._id + '" method="post" action="" enctype="multipart/form-data">';
     html +=         '<input id="add_appendix_refers_to" type="hidden" value="' + doc._id + '" />';
+    html +=         '<select id="add_appendix_type" data-id="' + doc._id + '">';
+    html +=           '<option value="comment" default>Comment</option>';
+    html +=           '<option value="action">Action</option>';
+    html +=         '</select><br />';
     html +=         '<div class="row">';
-    html +=           '<div class="form-group col-xs-2">';
-    html +=             '<select id="add_appendix_type" data-id="' + doc._id + '" class="form-control">';
-    html +=               '<option value="comment" default>Comment</option>';
-    html +=               '<option value="action">Action</option>';
-    html +=             '</select>';
-    html +=           '</div>';
     html +=           '<div style="float:left;" class="col-md-4">';
     html +=             '<textarea id="add_appendix_cont" style="resize: vertical;" cols="80" rows="4" class="form-control" placeholder="Content"></textarea>';
     html +=           '</div>';
@@ -154,13 +153,12 @@ function insertJournalEntry(doc) {
     html +=           '<input id="_db" name="_db" type="hidden" value="journal" />';
                 
     html +=           '<div name="add_appendix_type_action" style="display:none;" class="col-md-4" data-id="' + doc._id + '">';
-    html +=             '<span class="label label-secondary">Add a deadline and choose who is responsible for the action</span>';
     html +=             '<div class="input-group">';
-    html +=               '<span class="input-group-addon">Deadline</span>';
+    html +=               '<span class="input-group-addon">Add a deadline</span>';
     html +=               '<input id="add_appendix_deadline" placeholder="yyyy/mm/dd hh:mm:ss" type="text" class="form-control" size="33" />';
     html +=            '</div>';
     html +=            '<div class="input-group">';
-    html +=              '<span class="input-group-addon">Responsible</span>';
+    html +=              '<span class="input-group-addon">Who is responsible</span>';
     html +=              '<input id="add_appendix_responsible" placeholder="Username, real name, role etc" size="33" type="text" class="form-control" />';
     html +=            '</div>';
     html +=          '</div>';
@@ -176,7 +174,7 @@ function insertJournalEntry(doc) {
     html +=              '<input id="add_attachment_filename_label" type="text" class="form-control" readonly>';
     html +=            '</div>';
     html +=            '<div class="input-group">';
-    html +=              '<span class="input-group-addon">Filed Copy</span>';
+    html +=              '<span class="input-group-addon">Filed copy</span>';
     html +=              '<span class="input-group-addon"><input id="add_appendix_use_filed_copy" type="checkbox"/></span>';
     html +=              '<input id="add_appendix_filed_copy" type="text" value="' + randStr(5) + '" size="28" readonly class="text-center form-control"/>';
     html +=            '</div>';
@@ -585,7 +583,7 @@ $(document).ready(function() {
     // Insert html structure
     insertJournalSection();
     insertJournalTable();
-
+    
     // Set interval for updating content
     updateContent();
     //setInterval(updateContent, cfg_upd_journal_intval);
@@ -598,10 +596,6 @@ $(document).ready(function() {
     
     // Shows the journal
     showOnly('journal');
-    
-    // Insert default value into the classification dropdown menu
-    $('#add_journal_class').val('Crisis team internal use');
-    $('#add_journal_class_label').html('Crisis team internal use');
         
     // Show/hide appendices
     $(document).on('click', '.journal_view_header', function(e) {
@@ -671,6 +665,8 @@ $(document).ready(function() {
             $('#add_journal_cont').val('');
             $('#add_journal_event_time').val('');
             $('#add_journal_keywords').val('');
+            $('#add_journal_class_label').text(cfg_classifications['internal']);
+            $('#add_journal_class').val(cfg_classifications['internal']);
         });
     });
 

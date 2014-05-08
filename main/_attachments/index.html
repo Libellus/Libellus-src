@@ -8,7 +8,7 @@
   <link href="style/bootstrap.css" rel="stylesheet" />
   <link href="style/timeline.css" rel="stylesheet" /> 
   <link href="style/libellus_core.css" rel="stylesheet" />
- 
+  <link href="style/bootstrap-select.css" rel="stylesheet" />
   
 </head>
 
@@ -38,10 +38,12 @@
             <li><a id="_utils" href=""><span class="glyphicon glyphicon-wrench"></span> Utils</a></li>
             <li><a id="signed_in_as" href=""><span class="glyphicon glyphicon-user"></span> Signed in as <span id="show_username" /></a></li>
           </ul>
-          <div id="clock_status"></div>
-          <div id="clock_cont">
-            <div class="clock" id="clock_local"></div>
-            <div class="clock" id="clock_external"></div>
+          <div id="clocks">
+            <div id="clock_status"></div>
+            <div id="clock_cont">
+              <div class="clock" id="clock_local"></div>
+              <div class="clock" id="clock_external"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -69,6 +71,7 @@
   <script src="script/bootstrap-dialog.js"></script>
   <script src="script/bootstrap-datetimepicker.min.js"></script>
   <script src="script/bootstrap-datetimepicker.en-gb.js"></script>
+  <script src="script/bootstrap-select.js"></script>
   
   <script src="script/libellus_config.js"></script>
   <script src="script/libellus_core.js"></script>

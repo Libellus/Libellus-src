@@ -52,12 +52,12 @@ var cfg_upd_chat_remove_old_users = 10000;
 // Classifications
 
 // The key will be used as a short name that will be displayed in the journal
-var cfg_classifications = { 
-    "media": "Releasable to the media",
-    "all_partners": "Releasable to all partners",
-    "trusted_partners": "Releasable to trusted partners",
+var cfg_classifications = {
+    "internal": "Crisis team internal use",
     "employees": "Releasable to all employees",
-    "internal": "Crisis team internal use"
+    "trusted_partners": "Releasable to trusted partners",
+    "all_partners": "Releasable to all partners",
+    "media": "Releasable to the media",
 }
 
 var cfg_couchdb_username = 'libellususer';

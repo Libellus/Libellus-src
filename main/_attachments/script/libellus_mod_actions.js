@@ -91,7 +91,7 @@ function insertActionsEntry(action_doc, journal_doc) {
         html +=         '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
         html +=           '<span name="action_entry_edit_status_label" style="color:#333333;" data-id="' + action_doc._id + '">Status</span> <span class="caret"></span>';
         html +=         '</button>';
-        html +=         '<ul name="action_entry_edit_status_select" class="dropdown-menu" data-id="' + action_doc._id + '">';
+        html +=         '<ul name="action_entry_edit_status_select" class="dropdown-menu" style="left:89%;" data-id="' + action_doc._id + '">';
         html +=           '<li><a href="#">Solved</a></li>';
         html +=           '<li><a href="#">Rejected</a></li>';
         html +=         '</ul>';
@@ -161,7 +161,7 @@ function getChangedActionDocs() {
                                     var time_used = (new Date()).getTime() - timestamp_start;
                                     if (time_used < cfg_upd_actions_intval) {
                                         setTimeout(getChangedActionDocs, cfg_upd_actions_intval - time_used); 
-                                    } else { 
+                                    } else { 
                                         getChangedActionDocs();
                                     }
                                 }
@@ -174,7 +174,7 @@ function getChangedActionDocs() {
             var time_used = (new Date()).getTime() - timestamp_start;
             if (time_used < cfg_upd_actions_intval) {
                 setTimeout(getChangedActionDocs, cfg_upd_actions_intval - time_used); 
-            } else { 
+            } else { 
                 getChangedActionDocs();
             }
         }                            
@@ -316,4 +316,5 @@ $(document).ready(function() {
     });
 
 });
+
 

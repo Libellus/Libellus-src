@@ -132,9 +132,9 @@ function updateExternalTimestamp() {
         glob_external_timestamp = parseInt(glob_external_timestamp) + 1000;
         var internet_time = moment(glob_external_timestamp).zone('+0000').format('YYYY/MM/DD HH:mm:ss ZZ');
         // $('#clock_external').html('<span style="color:#FFFFFF; font-weight:bold;">Internet Time:</span> ' + timestampToDatetime(glob_external_timestamp));
-        $('#clock_external').html('<span style="color:#FFFFFF; font-weight:bold;">Internet Time:</span> ' + internet_time);
+        $('#clock_external').html('<span style="color:#FFFFFF; font-weight:bold;">Internet:</span> ' + internet_time);
     } else {
-        $('#clock_external').html('<span style="color:#FFFFFF; font-weight:bold;">Internet Time:</span> N/A');
+        $('#clock_external').html('<span style="color:#FFFFFF; font-weight:bold;">Internet:</span> N/A');
     }
 }
 
@@ -143,7 +143,7 @@ function updateLocalTimestamp() {
     var ts = new Date().getTime();
     glob_local_timestamp = parseInt(ts);
     var local_time = moment(new Date()).format('YYYY/MM/DD HH:mm:ss ZZ');
-    $('#clock_local').html('<span style="color:#FFFFFF; font-weight:bold;">Local Time: </span> ' + local_time);
+    $('#clock_local').html('<span style="color:#FFFFFF; font-weight:bold;">Local: </span> ' + local_time);
 }
 
 // Converts a unix timestamp to datetime. Ex: 1389789078000 => 2014/01/15 12:31:18+0000
