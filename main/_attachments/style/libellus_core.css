@@ -538,6 +538,11 @@ ul.dropdown-menu > li > a:hover {
     
 }
 
+.dropdown > button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 #clocks, #clock_cont, .clock {
     margin-left: 0px;
     padding-left: 0px;

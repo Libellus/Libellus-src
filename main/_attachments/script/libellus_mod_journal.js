@@ -4,76 +4,72 @@ var glob_journal_counter = 0;
 // Inserts the structure of the journal section
 function insertJournalSection() {
     var html = '';
-    html += '<div id="section_journal" style="display:none; overflow:hidden;">';
-      
-      html += '<div id="search_form" class="container">';
-        html += '<div class="row">';
-
-          html += '<div class="col-md-4">';
-            html += '<div class="input-group">';
-              html += '<span class="input-group-addon">From</span>';
-              html += '<input type="text" id="search_time_from" class="form-control" placeholder="yyyy/mm/dd hh:mm:ss" />';
-              html += '<span class="input-group-btn">';
-                html += '<button id="search_time_from_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
-              html += '</span>';
-            html += '</div>';
-          html += '</div>';
-          
-          html += '<div class="col-md-4">';
-            html += '<div class="input-group">';
-              html += '<span class="input-group-addon">To</span>';
-              html += '<input type="text" id="search_time_to" class="form-control" placeholder="yyyy/mm/dd hh:mm:ss" />';
-              html += '<span class="input-group-btn">';
-                html += '<button id="search_time_to_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
-              html += '</span>';
-            html += '</div>';
-          html += '</div>';
-
-          html += '<div class="col-md-4">';
-            html += '<div class="input-group">';
-              html += '<span class="input-group-addon">Search</span>';
-              html += '<input type="text" id="search_str" class="form-control" placeholder="Keywords" />';
-              html += '<span class="input-group-btn">';
-                html += '<button id="search_str_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
-              html += '</span>';
-            html += '</div>';
-          html += '</div>';
-
-        html += '</div>'; // End row
-      html += '</div>'; // End cont
-                  
-      html += '<div id="footer">';
-        html += '<div id="footer_top" class="text-center">';
-          html += ' <a id="footer_toggle" href=""><span class="glyphicon glyphicon-pencil"></span> Write New Journal Entry</a>';
-        html += '</div>';
-        html += '<div id="footer_bot" class="container">';
-          html += '<div class="col-sm-7">';
-            html += '<form class="form-inline" action="#" method="get">';
-              html += '<input id="add_journal_subject" placeholder="Subject" size="78" class="form-control" />';
-              html += '<textarea id="add_journal_cont" style="resize: vertical;" cols="80" rows="4" placeholder="Content" class="form-control"></textarea>';
-              html += '<input id="add_journal_keywords" type="text" placeholder="Keywords" class="form-control" />';
-              html += '<div class="input-group col-sm-8" style="padding-left:0px;">';
-                html += '<input id="add_journal_event_time" placeholder="Event Time" type="text" class="form-control" />';
-                html += '<div class="input-group-btn dropup">';
-                  html += '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
-                    html += '<span id="add_journal_class_label" style="color:#333333;">Classification</span> <span class="caret"></span>';
-                  html += '</button>';
-                  html += '<ul id="add_journal_class_select" class="dropdown-menu" style="left:57%;">';
-                  $.each(cfg_classifications, function(index, value) {
-                      html += '<li><a href="#">' + value + '</a></li>';
-                  });
-                  html += '</ul>';
-                  html += '<input id="add_journal_class" type="hidden" class="class_value">';
-                html += '</div>';
-              html += '</div>';
-              html += '<button id="add_journal_btn" class="btn btn-tertiary col-sm-3 pull-right" type="submit">Add Entry</button>';
-            html += '</form>';
-          html += '</div>';
-        html += '</div>';
-
-          
-      html += '</div>';
-    html += '</div>';
+    html += '<div id="section_journal" style="display:none; overflow:hidden;">';  
+    html +=   '<div id="search_form" class="container">';
+    html +=     '<div class="row">';
+    html +=       '<div class="col-md-4">';
+    html +=         '<div class="input-group">';
+    html +=           '<span class="input-group-addon">From</span>';
+    html +=           '<input type="text" id="search_time_from" class="form-control" placeholder="yyyy/mm/dd hh:mm:ss" />';
+    html +=           '<span class="input-group-btn">';
+    html +=             '<button id="search_time_from_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
+    html +=           '</span>';
+    html +=         '</div>';
+    html +=       '</div>';
+    html +=       '<div class="col-md-4">';
+    html +=         '<div class="input-group">';
+    html +=           '<span class="input-group-addon">To</span>';
+    html +=           '<input type="text" id="search_time_to" class="form-control" placeholder="yyyy/mm/dd hh:mm:ss" />';
+    html +=           '<span class="input-group-btn">';
+    html +=             '<button id="search_time_to_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
+    html +=           '</span>';
+    html +=         '</div>';
+    html +=       '</div>';
+    html +=       '<div class="col-md-4">';
+    html +=         '<div class="input-group">';
+    html +=           '<span class="input-group-addon">Search</span>';
+    html +=           '<input type="text" id="search_str" class="form-control" placeholder="Keywords" />';
+    html +=           '<span class="input-group-btn">';
+    html +=             '<button id="search_str_clear" class="btn btn-secondary"> <span class="glyphicon glyphicon-trash"></span></button>';
+    html +=           '</span>';
+    html +=         '</div>';
+    html +=       '</div>';
+    html +=     '</div>'; // End row
+    html +=   '</div>'; // End cont   
+    html +=   '<div id="footer">';
+    html +=     '<div id="footer_top" class="text-center">';
+    html +=       '<a id="footer_toggle" href=""><span class="glyphicon glyphicon-pencil"></span> Write New Journal Entry</a>';
+    html +=     '</div>';
+    html +=     '<div id="footer_bot" class="container">';
+    html +=       '<div class="col-sm-7">';
+    html +=         '<form class="form-inline" action="#" method="get">';
+    html +=           '<input id="add_journal_subject" placeholder="Subject" size="78" class="form-control" />';
+    html +=           '<textarea id="add_journal_cont" style="resize: vertical;" cols="80" rows="4" placeholder="Content" class="form-control"></textarea>';
+    html +=           '<input id="add_journal_keywords" type="text" placeholder="Keywords" class="form-control" />';
+    html +=           '<div class="input-group col-sm-8" style="padding-left:0px;">';
+    html +=             '<input id="add_journal_event_time" placeholder="Event Time" type="text" class="form-control" />';
+    html +=             '<div class="input-group-btn dropup">';
+    html +=               '<div class="dropdown">';
+    html +=                 '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">';
+    html +=                   '<span id="add_journal_class_label" style="color:#333333;">Classification</span> <span class="caret"></span>';
+    html +=                 '</button>';
+    html +=                 '<ul id="add_journal_class_select" class="dropdown-menu">';
+    
+    $.each(cfg_classifications, function(index, value) {
+        html +=               '<li><a href="#">' + value + '</a></li>';
+    });
+    
+    html +=                 '</ul>';
+    html +=               '</div>';
+    html +=               '<input id="add_journal_class" type="hidden" class="class_value">';
+    html +=             '</div>';
+    html +=           '</div>';
+    html +=           '<button id="add_journal_btn" class="btn btn-tertiary col-sm-3 pull-right" type="submit">Add Entry</button>';
+    html +=         '</form>';
+    html +=       '</div>';
+    html +=     '</div>';
+    html +=   '</div>'; // End footer
+    html += '</div>'; // End section
     
     $('#main_content').append(html);
 }
@@ -665,7 +661,7 @@ $(document).ready(function() {
             $('#add_journal_cont').val('');
             $('#add_journal_event_time').val('');
             $('#add_journal_keywords').val('');
-            $('#add_journal_class_label').text(cfg_classifications['internal']);
+            $('#add_journal_class_label').val(cfg_classifications['internal']);
             $('#add_journal_class').val(cfg_classifications['internal']);
         });
     });
