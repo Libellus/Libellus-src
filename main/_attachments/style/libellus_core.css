@@ -68,6 +68,9 @@ input[type=checkbox] {
     margin-bottom: 5px;
 }
 
+#footer_top a {
+   text-decoration: none;
+}
 
 .form-control {
     border-radius: 0px;
@@ -489,9 +492,17 @@ ul.dropdown-menu > li > a:hover {
   background-color: #212121;
 }
 
+.menu-link {
+    display:inline-flex !important;
+}
+
+.visible-lg {
+    margin-left: 5px !important;
+}
+
 /* Minimum screen size before collapse: */
 
-@media (max-width: 1180px) {
+@media (max-width: 750px) {
     .navbar .dropdown-menu.no-collapse {
         background-color: #ffffff;
         border-color: rgba(0, 0, 0, 0.2);
@@ -527,7 +538,7 @@ ul.dropdown-menu > li > a:hover {
     .navbar-nav>li {
         float: none;
     }
-    .navbar-nav>li>a {
+    .navbar-nav > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
     }
