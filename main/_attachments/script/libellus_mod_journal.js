@@ -86,12 +86,12 @@ function insertJournalEntry(doc) {
     html +=   '<td title="' + doc.classification + '">' + classReplacement(doc.classification) + '</td>';
     html +=   '<td>&nbsp;</td>'; // Here comes the number of comments
     html +=   '<td>&nbsp;</td>'; // Here comes the number of actions
-    html +=   '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ');
+    html +=   '<td title="YYYY-MM-DD HH:MM:SS TZ (Difference from external and local time)" nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ');
     
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
+        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
@@ -220,7 +220,7 @@ function insertJournalComment(doc) {
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
+        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
@@ -269,7 +269,7 @@ function insertJournalAction(doc) {
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
+        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
