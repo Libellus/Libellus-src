@@ -1,6 +1,6 @@
 /* TIME */
 
-// Note that every time should be given in microseconds.
+// Note that every time should be given in milliseconds.
 
 // How often the external timestamp gets reset (in ms)
 var cfg_upd_extr_timestamp_intval = 120000;
@@ -11,6 +11,7 @@ var cfg_timestamp_tick_intval = 1000;
 var cfg_time_limit_ok = 3000;
 
 // How much diff time limit between local and internet time to show yellow circle
+// If the offset exceeds this limit, it will show orange
 var cfg_time_limit_warning = 6000;
 
 // How often entries will be updated with new timestamp where there is none.

@@ -52,7 +52,7 @@ function setExternalTimestamps() {
                   doc['_id'] = doc._id;
                   doc['_rev'] = doc._rev;
                   // Calculates the offset
-                  var offset = getTimeOffset();
+                  var offset = getGlobTimeOffset(glob_external_timestamp, glob_local_timestamp);
                   doc.added_timestamp_external = doc.added_timestamp_local + offset;
                   updateDoc(doc, function(resp) {
                       console.log(resp);
@@ -80,8 +80,8 @@ function initExternalTimestamp() {
 }
 
 // Returns the difference between local and external time
-function getTimeOffset() {
-    return glob_external_timestamp - glob_local_timestamp;
+function getTimeOffset(external, local) {
+    return external - local;
 }
 
 function updateAllTimes() {
@@ -112,7 +112,7 @@ function getLocationHash(key) {
 
 // Changes the color if the clock status.
 function updateClockStatus() {
-    var diff = Math.abs(getTimeOffset());
+    var diff = Math.abs(getTimeOffset(glob_external_timestamp, glob_local_timestamp));
 
     if (!glob_external_timestamp) {
         $('#clock_status').css('background-color', 'red');

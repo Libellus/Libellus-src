@@ -9,7 +9,7 @@ function insertActionsTable() {
     html += '<table id="table_actions" class="tablesorter_default">';
     html +=   '<thead>';
     html +=     '<tr class="tr_header">';
-    html +=       '<th>Nr.</th>';
+    html +=       '<th>No.</th>';
     html +=       '<th><span>Author</span></th>';
     html +=       '<th><span>Subject</span></th>';
     html +=       '<th><span>Deadline</span></th>';
@@ -52,7 +52,7 @@ function insertActionsEntry(action_doc, journal_doc) {
     html +=   '<td>' + ++glob_actions_counter + '</td>';
     html +=   '<td>' + escapeHtml(action_doc.author) + '</td>';
     html +=   '<td>' + escapeHtml(action_doc.content) + '</td>';
-    html +=   '<td>' + moment(action_doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+    html +=   '<td>' + moment(action_doc.deadline).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
     html +=   '<td>' + (action_doc.responsible == null? '&nbsp;' : action_doc.responsible) + '</td>';
     html +=   '<td>' + (action_doc.solved_by_username == null? '&nbsp;' : action_doc.solved_by_username) + '</td>';
 

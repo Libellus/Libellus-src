@@ -72,6 +72,11 @@ input[type=checkbox] {
    text-decoration: none;
 }
 
+
+tr[name=journal_entry_content] {
+    display: none;
+}
+
 .form-control {
     border-radius: 0px;
 }

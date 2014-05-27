@@ -86,15 +86,17 @@ function insertJournalEntry(doc) {
     html +=   '<td title="' + doc.classification + '">' + classReplacement(doc.classification) + '</td>';
     html +=   '<td>&nbsp;</td>'; // Here comes the number of comments
     html +=   '<td>&nbsp;</td>'; // Here comes the number of actions
+    html +=   '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ');
     
-    // If the doc doesn't have Internet time, then we display "N/A"
+    // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
-        html += '<td nowrap>' + moment(doc.added_timestamp_external).zone('+0000').format('YYYY/MM/DD HH:mm:ss ZZ'); + '</td>';
+        offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
+        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
     } else {
-        html += '<td nowrap>N/A</td>';
+        html += ' (N/A)';
     }
     
-    html +=   '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+    html +=   '</td>';
     html += '</tr>';
     html += '<tr name="journal_entry_content" class="row-details expand-child" data-id="' + doc._id + '">';
     html +=   '<td class="journal_view_content" colspan="8">' + wordwrap(doc.content, 120, '<br />', 1);
@@ -106,7 +108,7 @@ function insertJournalEntry(doc) {
     html +=   '</td>';
     html += '</tr>';
     html += '<tr name="journal_entry_appendices" class="expand-child" data-id="' + doc._id + '">';
-    html +=   '<td data-id="' + doc._id + '" colspan="9" style="border: 0px;">';
+    html +=   '<td data-id="' + doc._id + '" colspan="8" style="border: 0px;">';
   
     // Appendix table
     html += '<table name="table_appendix" data-id="' + doc._id + '" style="display:none;" class="tablesorter-child">';
@@ -116,8 +118,7 @@ function insertJournalEntry(doc) {
     html +=       '<th><span>Comment</span></th>';
     html +=       '<th><span>Marked solved by</span></td>';
     html +=       '<th><span>Attachment / Deadline</span></th>';
-    html +=       '<th><span>Added (Internet)</span></th>';
-    html +=       '<th><span>Added (Computer)</span></th>';
+    html +=       '<th><span>Added Time (Offset)</span></th>';
     html +=       '<th>Goto</th>';
     html +=     '</tr>';
     html +=   '</thead>';
@@ -213,14 +214,19 @@ function insertJournalComment(doc) {
         });
     }
     html += '</td>';
-    // If the doc doesn't have Internet time, then we display "N/A"
+    
+    html += '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ');
+    
+    // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
-        html += '<td nowrap>' + moment(doc.added_timestamp_external).zone('+00:00').format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+        offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
+        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
     } else {
-        html += '<td nowrap>N/A</td>';
+        html += ' (N/A)';
     }
-    html += '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
-    html += '<td>&nbsp;</td>';
+
+    html +=   '</td>';
+    html +=   '<td>&nbsp;</td>';
     html += '</tr>';
     
     if ($('table[name=table_appendix][data-id=' + doc.refers_to + '] > tbody').length == 0) {
@@ -258,13 +264,17 @@ function insertJournalAction(doc) {
     html += '<td>' + escapeHtml(doc.content) + '</td>';
     html += '<td>' + (doc.solved_by_username == null? '&nbsp;' : escapeHtml(doc.solved_by_username)) + '</td>';
     html += '<td>' + moment(doc.deadline).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
-    // If the doc doesn't have Internet time, then we display "N/A"
+    html += '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ');
+    
+    // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
-        html += '<td nowrap>' + moment(doc.added_timestamp_external).zone('+00:00').format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+        offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
+        html += ' (' + (offset >= 0? '+' :'-') + offset + ' )';
     } else {
-        html += '<td nowrap>N/A</td>';
+        html += ' (N/A)';
     }
-    html += '<td nowrap>' + moment(doc.added_timestamp_local).format('YYYY/MM/DD HH:mm:ss ZZ') + '</td>';
+
+    html += '</td>';
     html += '<td><a name="journal_entry_goto_action" href="" data-id="' + doc._id + '"><span style="color:#333333;" class="glyphicon glyphicon-hand-right"></span></a></td>';
     html += '</tr>';
 
@@ -311,15 +321,14 @@ function insertJournalTable() {
     html += '<table id="table_journal" class="tablesorter_default">';
     html +=   '<thead>';
     html +=     '<tr class="tr_header">';
-    html +=       '<th>Nr.</th>';
+    html +=       '<th>No.</th>';
     html +=       '<th><span>Author</span></th>';
     html +=       '<th><span>Subject</span></th>';
     html +=       '<th><span>Event Time</span></th>';
     html +=       '<th><span>Class</span></th>';
     html +=       '<th><span>#Com</span></th>';
     html +=       '<th><span>#Act</span></th>';
-    html +=       '<th nowrap><span>Added (Internet)</span></th>';
-    html +=       '<th nowrap><span>Added (Local)</span></th>';
+    html +=       '<th nowrap><span>Added Time (Offset)</span></th>';
     html +=     '</tr>';
     html +=   '</thead>';
     html +=   '<tbody>';
@@ -362,7 +371,6 @@ function updateJournalActionsBg() {
         }
     });
 }
-
 
 // Adds a post to the journal
 function addDoc(db_name, obj_info, callback) {
@@ -593,9 +601,10 @@ $(document).ready(function() {
     // Shows the journal
     showOnly('journal');
         
-    // Show/hide appendices
+    // Show/hide appendices and content
     $(document).on('click', '.journal_view_header', function(e) {
         $id = $(this).data('id');
+        $('tr[name=journal_entry_content][data-id=' + $id + ']').toggle();
         $('table[name=table_appendix][data-id=' + $id + ']').toggle();
         $('table[name=table_appendix_form][data-id=' + $id + ']').toggle();
     });
@@ -640,7 +649,7 @@ $(document).ready(function() {
             subject: $('#add_journal_subject').val(),
             content: $('#add_journal_cont').val(),
             author: getCookie('username'),
-            classification: $('#add_journal_class').val(),
+            classification: ($('#add_journal_class').val() != ''? $('#add_journal_class').val() : cfg_classifications['internal']),
             type: 'journal',
             event_time: datetimeToTimestamp($('#add_journal_event_time').val()),
             added_timestamp_external: glob_external_timestamp,
@@ -874,14 +883,14 @@ $(document).ready(function() {
                 $(this).hide();
                 $('tr[name=journal_entry_appendices][data-id=' + $(this).data('id') + ']').hide();
                 $('tr[name=journal_entry_appendix_form][data-id=' + $(this).data('id') + ']').hide();
-                $('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').hide();
+                //$('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').hide();
             } else {
                 // Show metadata, appendices and content
                 // We only show rows again if we are not performing a time filter
                 $(this).show();
                 $('tr[name=journal_entry_appendix_form][data-id=' + $(this).data('id') + ']').show();
                 $('tr[name=journal_entry_appendices][data-id=' + $(this).data('id') + ']').show();
-                $('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
+                //$('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
             }
         });
         
