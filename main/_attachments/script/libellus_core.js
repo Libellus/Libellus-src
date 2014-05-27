@@ -282,8 +282,6 @@ function showOnly(id) {
 }
 
 $(document).ready(function() {
-
-    document.cookie = 'initiated_external_timestamp=undefined';
     
     // If the order counter is not initialized, we do it now
     if (getCookie('order_counter') == undefined || getCookie('order_counter') == null) {

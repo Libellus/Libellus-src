@@ -4,12 +4,9 @@
   <title>Libellus - Crisis Management Tool</title>
   <link rel="shortcut icon" href="images/favicon.ico" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  
   <link href="style/bootstrap.css" rel="stylesheet" />
   <link href="style/timeline.css" rel="stylesheet" /> 
   <link href="style/libellus_core.css" rel="stylesheet" />
-  <!--<link href="style/bootstrap-select.css" rel="stylesheet" />-->
-  
 </head>
 
 <body data-offset="1" data-target=".navbar-collapse">
@@ -71,7 +68,6 @@
   <script src="script/bootstrap-dialog.js"></script>
   <script src="script/bootstrap-datetimepicker.min.js"></script>
   <script src="script/bootstrap-datetimepicker.en-gb.js"></script>
-  <!--<script src="script/bootstrap-select.js"></script>-->
   
   <script src="script/libellus_config.js"></script>
   <script src="script/libellus_core.js"></script>
@@ -85,6 +81,13 @@
   <script src="script/bootstrap.js"></script>
   <script src="script/bootstrapx-clickover.js"></script>
   <!-- End include Javascript -->
+  
+  <!-- Hacks for cross compatibility -->
+  <script>
+  if ($.browser.msie && $.browser.version == 10) {
+      $('.menu-link').css('display', '-ms-flexbox');
+  }
+  </script>
   
   </body>
 </html>

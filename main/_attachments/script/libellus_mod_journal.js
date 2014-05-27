@@ -91,7 +91,7 @@ function insertJournalEntry(doc) {
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
+        html += ' (' + (offset >= 0? '+' :'') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
@@ -220,7 +220,7 @@ function insertJournalComment(doc) {
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
+        html += ' (' + (offset >= 0? '+' :'') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
@@ -269,7 +269,7 @@ function insertJournalAction(doc) {
     // If the doc doesn't have Internet time, then we display "N/A" in the offset
     if (doc.added_timestamp_external) {
         offset = getTimeOffset(doc.added_timestamp_external, doc.added_timestamp_local);
-        html += ' (' + (offset >= 0? '+' :'-') + Math.round(offset / 1000) + ')';
+        html += ' (' + (offset >= 0? '+' :'') + Math.round(offset / 1000) + ')';
     } else {
         html += ' (N/A)';
     }
@@ -793,7 +793,7 @@ $(document).ready(function() {
             // Checking if search matched against metadata and content
             if (reg.test(metadata_text) || reg.test(content_text)) {
                 // Display content
-                $('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
+                //$('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
                 // Display appendices
                 $('tr[name=journal_entry_appendices][data-id=' + $(this).data('id') + ']').show();
                 // Display appendix form
@@ -802,7 +802,7 @@ $(document).ready(function() {
                 $(this).show();
             } else {
                 // We only hide rows if we dont do a keyword search
-                $('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').hide();
+                //$('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').hide();
                 // Hide appendices
                 $('tr[name=journal_entry_appendices][data-id=' + $(this).data('id') + ']').hide();
                 // Hide appendix form
@@ -820,7 +820,7 @@ $(document).ready(function() {
                 // Display metadata
                 $('tr[name=journal_entry_metadata][data-id=' + $(this).data('id') + ']').show();
                 // Display content
-                $('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
+                //$('tr[name=journal_entry_content][data-id=' + $(this).data('id') + ']').show();
                 // Display appendix form
                 $('tr[name=journal_entry_appendix_form][data-id=' + $(this).data('id') + ']').show();
                 // Display appendices

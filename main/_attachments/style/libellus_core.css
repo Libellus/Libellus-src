@@ -497,8 +497,10 @@ ul.dropdown-menu > li > a:hover {
   background-color: #212121;
 }
 
+/* Places the icons on the same line */
 .menu-link {
-    display:inline-flex !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
 }
 
 .visible-lg {
