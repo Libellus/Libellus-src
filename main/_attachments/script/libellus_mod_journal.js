@@ -194,12 +194,15 @@ function insertJournalEntry(doc) {
 
 // Inserts a comment into the journal entry
 function insertJournalComment(doc) {
+    // If the entry already exist, we remove it first to hinder duplicates.
+    removeAppendixEntry(doc);
+
     var html = '';
-    html += '<tr>';
-    html += '<td>' + escapeHtml(doc.author) + '</td>';
-    html += '<td>' + escapeHtml(doc.content) + '</td>';
-    html += '<td>&nbsp;</td>';
-    html += '<td>';
+    html += '<tr data-id="' + doc._id + '">';
+    html +=   '<td>' + escapeHtml(doc.author) + '</td>';
+    html +=   '<td>' + escapeHtml(doc.content) + '</td>';
+    html +=   '<td>&nbsp;</td>';
+    html +=   '<td>';
 
     // Checks whether filed copy code was used instead for an uploaded attachment.
     if (doc.filed_copy && !doc.attachments) {
